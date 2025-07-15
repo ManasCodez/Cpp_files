@@ -59,4 +59,5 @@ int main(){
     for(auto i :nums){
         cout << i << ' ';
     }
+    return 0;
 }
