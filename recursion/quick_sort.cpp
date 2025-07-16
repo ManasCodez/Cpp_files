@@ -4,17 +4,20 @@
 using namespace std;
 
 void quick_sort(vector<int>&nums, int pivot,int low,int high){
+
+    if(low >=high) return;
+
     for(int i=low; i<=high;i++){
         if(nums[i] > nums[pivot] && i<pivot){
             swap(nums[i],nums[pivot]);
             int j=i;
-            i = 0;
+            i = min(i,pivot-1);
             pivot = j;
             
         }else if(nums[pivot]>nums[i] && i>pivot){
             swap(nums[i],nums[pivot]);
             int j=i;
-            i = 0;
+            i = min(i,pivot-1);
             pivot = j;
         }
     }
@@ -27,9 +30,9 @@ void quick_sort(vector<int>&nums, int pivot,int low,int high){
 }
 
 int main(){
-    vector<int>nums={2,5,7,8,6,45,23,4};
-    int pivot = nums.size()-1;
-    quick_sort(nums,pivot,0,pivot);
+    vector<int>nums={10, 1, 9, 2, 8, 3, 7,-43,-1,-48};
+        int pivot = nums.size()-1;
+        quick_sort(nums,pivot,0,pivot);
 
     for(int i : nums){
         cout << i << ' ';
