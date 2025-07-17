@@ -4,8 +4,8 @@
 using namespace std;
 
 int partition(vector<int>&nums,int st, int end){
-    int pivot = end;
-    int i=0;
+    int pivot = nums[end];
+    int i=st;
     for(int j=st ; j<=end; j++){
         if(nums[j]<pivot){
             swap(nums[i],nums[j]);
@@ -28,11 +28,12 @@ void quick_sort(vector<int>&nums, int st,int end){
 }
 
 int main(){
-    vector<int>nums={5,2,6,4,1,3};
+    vector<int>nums={5,2,6,4,1,3,-1,-5,-3};
         
     quick_sort(nums,0,nums.size()-1);
 
     for(int i : nums){
         cout << i << ' ';
     }
+    return 0;
 }
