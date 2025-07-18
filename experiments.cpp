@@ -1,11 +1,10 @@
 #include <iostream>
 #include<set>
+#include<map>
 #include<vector>
 using namespace std;
 
 
-int main(){
-    string m = "manas";
-    string n = m.substr(2);
-    cout << n ;
-}
+    int main(){
+      
+    }
