@@ -35,25 +35,21 @@ void merge_and_compare(vector<int>&nums, int st , int end , int mid ,int &c){
         }
     }
     
-    while(i<=mid || j<=end ){
-        if(j>end){
-            for(int a=i; a<=mid;a++){
-                temp.push_back(nums[a]);
-            }
-            break;
-        }else if(i>mid){
-            for(int a=j; a<=end; a++){
-                temp.push_back(nums[a]);
-            }
-            break;
+    
+    if(j>end){
+        for(int a=i; a<=mid;a++){
+            temp.push_back(nums[a]);
+        }
+            
+    }else if(i>mid){
+        for(int a=j; a<=end; a++){
+            temp.push_back(nums[a]);
         }
     }
+    
     for(int k=0; k<temp.size();k++){
         nums[st+k] = temp[k];
     }
-
-    
-    
 
 }
 
