@@ -67,5 +67,5 @@ int main(){
     vector<int>nums = {6,3,5,2,7};
     int c=0;
     mergesort(nums,0,nums.size()-1,c);
-    cout << c;
+    cout << c << endl;
 }
