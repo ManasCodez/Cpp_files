@@ -70,3 +70,5 @@ int main(){
     nqueens(board, row,n);
     return 0;
 }
+
+// hlo i am manas
