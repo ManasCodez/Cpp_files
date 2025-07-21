@@ -16,7 +16,7 @@ class  teacher{
         string subject;
     
     
-   
+        //member function
         void change_dept(string new_dept){
             dept = new_dept;
         }
