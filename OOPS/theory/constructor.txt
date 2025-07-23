@@ -1,0 +1,25 @@
+1. It is a special method which invokes automatically when creating a object. 
+   Used for initialisation.
+
+   Properties:
+        ~ Same name as class
+        ~ doesn't have a return type
+        ~ only called once (during the initialisation of a object)
+        ~ memory allocation happens when it is called.
+
+
+2. We can make the constructor even before initializing the Data Members 
+   (or Member Variables) of the class.
+      example:
+      
+         class teacher{
+            public: 
+            teacher(){ //constructor
+               name = "NULL";
+               dept = "CS";
+               subject = "Computer";
+            } 
+            string name; //date members
+            string dept;
+            string subject;
+         }

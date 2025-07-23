@@ -11,10 +11,16 @@ class  teacher{
         int salary; 
 
     public: 
+        teacher(){ //no return type in the funtion
+            name = "NULL";
+            dept = "CS";
+            subject = "Computer";
+        }
         string name;
         string dept;
         string subject;
-    
+
+        
     
         //member function
         void change_dept(string new_dept){
@@ -23,24 +29,44 @@ class  teacher{
 
         //setter funtion : sets the value in private attributes
         void setsalary(int new_sal){
-            salary = new_sal;
+            int pass;
+            cout << "Enter Password: ";
+            cin >> pass;
+            if(pass == 12345){
+                salary = new_sal;
+                cout << "salary updated !!" << endl;
+                cout << "New salary: " << new_sal << endl;
+            }
+            else cout << "Invalid password!!";
+            
             
         }
 
         //getter function : gives the value of private attributes
-        int  showsal(){
-            return salary;
+        void  showsal(){
+            int pass;
+            cout << "Enter Password: ";
+            cin >> pass;
+            if(pass == 12345){
+                cout << salary;
+            }else{
+                cout << "Invalid password!!";
+            }
+            return ;
         }
         
     
 };
 
+
+
+
 int main(){
     
-    teacher t1;
-    t1.name = "manas";
-    t1.setsalary(10000);
-    cout << t1.name << endl;
-    cout << t1.showsal();
+    teacher a1; // constructor call
+    teacher a2;
+    cout << a1.dept << endl;
+    a1.dept = "IT";
+    cout << a1.dept << endl;
     return 0;
 }

@@ -1,13 +1,14 @@
 #include <iostream>
 #include<set>
-#include<map>
+#include<unordered_map>
 #include<vector>
 using namespace std;
 
 
-    int main(){
-     int n =999999;
-        for(int i =0; i<n; i++){
-        cout << i << ' ';
-      }
-    }
+  int main(){
+    unordered_map<int,int>map;
+    int res=0;
+    res = res + map[-1];
+    cout << res;
+    return 0;  
+  }
