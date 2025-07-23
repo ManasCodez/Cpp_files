@@ -65,8 +65,7 @@ int main(){
     
     teacher a1; // constructor call
     teacher a2;
-    cout << a1.dept << endl;
-    a1.dept = "IT";
-    cout << a1.dept << endl;
+    a1.setsalary(10000);
+    a1.showsal();
     return 0;
 }
