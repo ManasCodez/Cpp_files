@@ -11,10 +11,16 @@ class  teacher{
         int salary; 
 
     public: 
+        //non parameterized constructor
         teacher(){ //no return type in the funtion
             name = "NULL";
             dept = "CS";
             subject = "Computer";
+        }
+        
+        //parameterized contructor
+        teacher(string n, string d, string s, int sal){
+            name = n, dept = d, subject = s, salary = sal;
         }
         string name;
         string dept;
@@ -63,9 +69,9 @@ class  teacher{
 
 int main(){
     
-    teacher a1; // constructor call
+    teacher a1("manas", "CS","computer",100000); // constructor call
     teacher a2;
-    a1.setsalary(10000);
+    
     a1.showsal();
     return 0;
 }

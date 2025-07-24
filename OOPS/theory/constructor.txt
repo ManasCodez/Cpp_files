@@ -5,7 +5,7 @@
         ~ Same name as class
         ~ doesn't have a return type
         ~ only called once (during the initialisation of a object)
-        ~ memory allocation happens when it is called.
+        ~ memory allocation happens when it is called(opject creation).
 
 
 2. We can make the constructor even before initializing the Data Members 
@@ -23,3 +23,17 @@
             string dept;
             string subject;
          }
+
+3. There are two types of constructor:
+      ~ parameterized
+      ~ non - parameterized
+
+      eg:   teacher(){ //non parameterized
+               name = "NULL";
+               dept = "CS";
+               subject = "Computer";
+            }
+
+            teacher(string n, string d, string s, int sal){ //parameterized
+            name = n, dept = d, subject = s, salary = sal;
+            }
