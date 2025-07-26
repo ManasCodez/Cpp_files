@@ -37,3 +37,16 @@
             teacher(string n, string d, string s, int sal){ //parameterized
             name = n, dept = d, subject = s, salary = sal;
             }
+
+
+4. This pointer: //can only be used in a member function not a normal function
+         "this" is a special pointer in C++ that points to the current object.
+   ~ it is used when the name of the passed argument is same as the Variable in the constructor.
+
+   eg:
+      teacher(string name, string dept, string subject, int salary){
+            this->name = name;
+            this->dept = dept;
+            this->subject = subject;
+            this->salary = salary;
+        } 

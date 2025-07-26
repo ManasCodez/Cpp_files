@@ -11,6 +11,9 @@ class  teacher{
         int salary; 
 
     public: 
+        string name;
+        string dept;
+        string subject;
         //non parameterized constructor
         teacher(){ //no return type in the funtion
             name = "NULL";
@@ -19,12 +22,13 @@ class  teacher{
         }
         
         //parameterized contructor
-        teacher(string n, string d, string s, int sal){
-            name = n, dept = d, subject = s, salary = sal;
+        teacher(string name, string d, string s, int sal){
+            this->name = name;
+            dept = d;
+            subject = s;
+            salary = sal;
         }
-        string name;
-        string dept;
-        string subject;
+        
 
         
     
@@ -70,8 +74,8 @@ class  teacher{
 int main(){
     
     teacher a1("manas", "CS","computer",100000); // constructor call
-    teacher a2;
+    teacher a2(a1); //default copy constructor
     
-    a1.showsal();
+    cout << a2.name;
     return 0;
 }

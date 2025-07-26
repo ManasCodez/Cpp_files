@@ -1,0 +1,9 @@
+1. When we have created a object like t1 and has passed the values for it ,
+   then for created another object with same values we can use the copy constructor.
+    //C++ has a default copy constructor so we can use it directly
+   eg:
+        int main(){
+            teacher t1("manas", "CS","computer",100000);
+            teacher t2(t1); //copy constructor 
+        }
+        //now values of t1 and t2 are same
