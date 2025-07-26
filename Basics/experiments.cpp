@@ -4,11 +4,8 @@
 #include<vector>
 using namespace std;
 
-
-  int main(){
-    unordered_map<int,int>map;
-    int res=0;
-    res = res + map[-1];
-    cout << res;
-    return 0;  
-  }
+int main(){
+  int x =10;
+  int* ptr = &x;
+  cout << *(ptr);
+}

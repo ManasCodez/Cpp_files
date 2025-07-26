@@ -1,9 +1,22 @@
-1. When we have created a object like t1 and has passed the values for it ,
-   then for created another object with same values we can use the copy constructor.
+1.  When we have created a object like t1 and has passed the values for it ,
+    then for created another object with same values we can use the copy constructor.
+    
     //C++ has a default copy constructor so we can use it directly
-   eg:
+    eg:
         int main(){
             teacher t1("manas", "CS","computer",100000);
             teacher t2(t1); //copy constructor 
         }
         //now values of t1 and t2 are same
+
+2. Custom copy constructor:
+        when we are using, teacher t2(t1), above c++ is using the default copy constructor.
+        we can man our own custom copy constructor
+
+        eg:
+        teacher(teacher& obj){
+            cout << "i am custom copy constructor";
+            this->name = obj.name;
+            this->dept= obj.dept;
+            this->subject= obj.subject;
+        } 
