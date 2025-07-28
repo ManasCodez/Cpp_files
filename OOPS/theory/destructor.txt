@@ -1,0 +1,21 @@
+1. Destructor is opposite of constructor.
+    like contructor is used for allocating memory, Destructor is used for deallacating 
+    memory.
+
+2. If we have allocated memory dynamically, we have to remove it dynamically.
+        eg:
+        class deepstudent{ 
+            public:
+            string name;
+            double* cgpaptr;
+
+            deepstudent(string name, double cgpa){   //constructor
+            this->name=name;
+            cgpaptr = new double; //adding new double to allocate new memory
+            *cgpaptr = cgpa;//changes value of the new memory address to the required one. 
+            }
+
+            ~deepstudent(){
+                cout << "Hi i am Destructor";
+            }
+        }

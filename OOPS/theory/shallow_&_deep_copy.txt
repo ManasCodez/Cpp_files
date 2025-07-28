@@ -2,3 +2,39 @@
 
 2. On the other hand, deep copy not only copies the member values but also makes copies 
    of any dynmically allocated memory that the members point to.
+
+Problems in shallow copy:
+         eg:
+            class student{
+            public:
+            string name;
+            double* cgpaptr; 
+            student(string name, double cgpa){
+               this->name=name;
+               cgpaptr = new double;
+               *cgpaptr = cgpa;
+             }
+            student(student &obj){
+               this->name=obj.name;
+               cgpaptr = new double;
+               this->cgpaptr = obj.cgpaptr;
+            }
+            void getinfo(){
+                cout << "Student name: " << name<<endl;
+               cout << "CGPA: " << *cgpaptr << endl;
+               }
+            };
+
+            int main(){
+               student s1("Manas",8.8);
+               student s2(s1); // copy constructor
+               s1.getinfo();
+               *(s2.cgpaptr) = 9;
+               s1.getinfo();
+            }
+
+            ~ if we make changes in cpga in s2, it will also change the value in s1,
+              as both pointers points to the same memory address.
+
+            ~ On the other hand, deep copy makes a new pointer and let you assign 
+              different cgpa for different students.
