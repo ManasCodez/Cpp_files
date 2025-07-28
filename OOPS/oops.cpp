@@ -28,6 +28,12 @@ class  teacher{
             subject = s;
             salary = sal;
         }
+         teacher(teacher& obj){//custom copy constructor
+            cout << "i am custom copy constructor\n";
+            this->name = obj.name;
+            this->dept= obj.dept;
+            this->subject= obj.subject;
+        } 
         
 
         
@@ -74,8 +80,8 @@ class  teacher{
 int main(){
     
     teacher a1("manas", "CS","computer",100000); // constructor call
-    teacher a2(a1); //default copy constructor
-    
-    cout << a2.name;
+    // teacher a2(a1); //default copy constructor
+    teacher t2(a1);//custom copy constructor
+    cout << t2.name;
     return 0;
 }

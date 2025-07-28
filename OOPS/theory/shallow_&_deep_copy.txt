@@ -1,0 +1,4 @@
+1. A shallow copy of an object copies all the member values from one object to anohter.
+
+2. On the other hand, deep copy not only copies the member values but also makes copies 
+   of any dynmically allocated memory that the members point to.
