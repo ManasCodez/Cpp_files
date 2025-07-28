@@ -2,7 +2,11 @@
     like contructor is used for allocating memory, Destructor is used for deallacating 
     memory.
 
-2. If we have allocated memory dynamically, we have to remove it dynamically.
+2. If we don't make a Destructor, it is created by itself, just like the constructor.
+
+3. If we have allocated memory dynamically, we have to remove it dynamically.
+    ~ DESTRUCTOR ONLY DELETES THE STATIC MEMORY !! 
+        
         eg:
         class deepstudent{ 
             public:
