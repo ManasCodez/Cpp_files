@@ -1,3 +1,12 @@
 1. When Properties & members functions of base class are passed on to the derived class.
         ~ we can use the Properties of a class in another class.
         
+2. Types of inheritance:
+        ~ Single inheritance: We pass on the the Properties from one class to another.
+
+        ~ Multi level inheritance: first we pass the Properties of one class to other,
+          than other the second class to the third class.
+
+        ~ Multi inheritance: We pass Properties from multiple classes to a single class.
+
+        image eg: In types of inheritance folder.
