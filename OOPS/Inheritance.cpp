@@ -40,35 +40,65 @@ using namespace std;
 
 
 
-class person{
-    public:
-    string name;
-    int age;
+
+//multi level inheritance
+// class person{
+//     public:
+//     string name;
+//     int age;
    
+// };
+
+// class student : public person{ 
+// public:
+//     int rollno;  
+    
+// };
+// class gradstudent: public student{ // multi level inheritance
+// public:
+//     string researchArea;
+//     void getinfo(){
+//         cout << name<<endl;
+//         cout << age<<endl;
+//         cout << rollno<<endl;
+//         cout << researchArea<<endl;
+//     }
+// };
+
+
+
+
+
+
+//multi inheritance
+class student{
+public:
+   
+    string name;
+    int rollno;
 };
 
-class student : public person{ 
+class teacher{
 public:
-    int rollno;  
     
+    string subject;
+    int salary;
 };
-class gradstudent: public student{ // multi level inheritance
+class teachingAssistant:public student,public teacher{
 public:
-    string researchArea;
+    
     void getinfo(){
         cout << name<<endl;
-        cout << age<<endl;
         cout << rollno<<endl;
-        cout << researchArea<<endl;
+        cout << subject<<endl;
+        cout << salary<<endl;
     }
 };
 
+
 int main(){
-    gradstudent g1;
-    g1.name = "Manas";
-    g1.age = 18;
-    g1.rollno=3232;
-    g1.researchArea="C++";
-    g1.getinfo();
+    teachingAssistant ta1;
+    ta1.name = "manas";
+    ta1.getinfo();
     return 0;
 }
