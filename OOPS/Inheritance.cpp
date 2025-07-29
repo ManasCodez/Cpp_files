@@ -10,7 +10,7 @@ class person{
     //     this->age=age;
     // }
     person(){
-
+        cout << "parent constructor"<< endl;
     }
 };
 
@@ -21,6 +21,9 @@ public:
         cout << "student name: " << name<<endl;
         cout << "student age: " << age <<endl;
         cout << "student rollno: " << rollno<<endl;
+    }
+    student(){
+        cout << "child constructor"<<endl;
     }
     
 };
