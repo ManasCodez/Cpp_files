@@ -41,8 +41,8 @@ using namespace std;
 
 //use % instead of subtration for more optimisation
 int main(){
-    int a = 0;
-    int b = 28;
+    int a = 2;
+    int b = 27;
     
     while(a>0 && b>0){
         if(a>b){
