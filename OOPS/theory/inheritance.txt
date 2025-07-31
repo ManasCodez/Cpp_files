@@ -9,4 +9,8 @@
 
         ~ Multi inheritance: We pass Properties from multiple classes to a single class.
 
+
+        ~ Hierarchial inheritance: Passing Properties from a single class to multiple      classes.
+
+        ~ Hybrid inheritance: Mixture of every inheritance.
         image eg: In types of inheritance folder.

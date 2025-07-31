@@ -70,35 +70,54 @@ using namespace std;
 
 
 
+
 //multi inheritance
-class student{
-public:
+// class student{
+// public:
    
+//     string name;
+//     int rollno;
+// };
+
+// class teacher{
+// public:
+    
+//     string subject;
+//     int salary;
+// };
+// class teachingAssistant:public student,public teacher{
+// public:
+    
+//     void getinfo(){
+//         cout << name<<endl;
+//         cout << rollno<<endl;
+//         cout << subject<<endl;
+//         cout << salary<<endl;
+//     }
+// };
+
+
+
+
+//hierarchial inheritance
+class person{
+public:
     string name;
+    int age;
+};
+class student : public person{
     int rollno;
 };
-
-class teacher{
-public:
-    
+class teacher: public person{
     string subject;
-    int salary;
 };
-class teachingAssistant:public student,public teacher{
-public:
-    
-    void getinfo(){
-        cout << name<<endl;
-        cout << rollno<<endl;
-        cout << subject<<endl;
-        cout << salary<<endl;
-    }
-};
-
 
 int main(){
-    teachingAssistant ta1;
-    ta1.name = "manas";
-    ta1.getinfo();
+    student s1;
+    teacher t1;
+    s1.name = "Manas";
+    t1.name = "Sharma";
+    cout <<s1.name<<endl;
+    cout << t1.name<<endl; 
     return 0;
 }

@@ -1,0 +1,5 @@
+    Poly = multiple
+    morph = forms 
+
+1. Polymorpism is the ability of object to take on different forms or behave in different   
+   ways on the context in which they are used.
