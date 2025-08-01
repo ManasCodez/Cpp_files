@@ -3,3 +3,17 @@
 
 1. Polymorpism is the ability of object to take on different forms or behave in different   
    ways on the context in which they are used.
+
+   eg:  Constructor overloading: object automatically choose and calls the  
+                                 onstructor on the basis of parameters passed.
+                            
+        Function overloading: Creating function of same name in a class but with and 
+                              without parameters to work differently when we pass a 
+                              parameter and when we don't.  
+                              
+
+2. Types of Polymorpism:
+            ~ Compile time Polymorpism
+                    eg: Constructor overloading
+                        Function overloading
+            ~ Run time Polymorpism
