@@ -21,7 +21,12 @@
                     eg: Function overriding: Parent and child class both contain same 
                                              function but the implementation is different.
                                              Then parent class is said to be overridden.   
+                        Virtual functions:  A virtual function is a member function that you
+                                            expect to be redefined in derived class.
 
+                                            ~They are defined by the keyword "virtual"
+                                            ~Dynamic in nature
+                                            ~It is called during runtime.               
 3.difference in overloading and overriding:
         ~ In overloading we create function with same name in the same class.
 

@@ -28,17 +28,52 @@ using namespace std;
 // }
 
 
-class print{
+
+
+
+// class print{
+// public:
+//     void show(int x){ //function overloading    
+//         cout << x; 
+//     }
+//     void show(string ch){
+//         cout << ch;
+//     }
+// };
+
+// int main(){
+//     print p1;
+//     p1.show("Manas");
+// }
+
+
+
+
+
+
+
+class parent{  
 public:
-    void show(int x){ //function overloading    
-        cout << x; 
+    void show(){
+        cout << "parent class\n";
     }
-    void show(string ch){
-        cout << ch;
+
+    virtual void info(){   //virtual function : works like the function overriding
+        cout << "helo from parent";
+    }
+};
+class child : public parent{
+public:
+    void show(){//Function overriding
+        cout << "child class\n";
+    }
+    void info(){
+        cout << "helo from child";
     }
 };
 
 int main(){
-    print p1;
-    p1.show("Manas");
+    child p1;
+    p1.show();
+    p1.info();
 }

@@ -1,0 +1,6 @@
+There are three types of access modifiers:
+          ~ Public
+          ~ Private
+          ~ Protected
+
+By default, Private access modifier is used in c++.
