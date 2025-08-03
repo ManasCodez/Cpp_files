@@ -9,7 +9,8 @@
                             
         Function overloading: Creating function of same name in a class but with and 
                               without parameters to work differently when we pass a 
-                              parameter and when we don't.  
+                              parameter and when we don't. 
+        Operator overloading: this is also present  
                               
 
 2. Types of Polymorpism:
@@ -17,3 +18,12 @@
                     eg: Constructor overloading
                         Function overloading
             ~ Run time Polymorpism
+                    eg: Function overriding: Parent and child class both contain same 
+                                             function but the implementation is different.
+                                             Then parent class is said to be overridden.   
+
+3.difference in overloading and overriding:
+        ~ In overloading we create function with same name in the same class.
+
+        ~ In overriding, child class also has a function with same name as the parent   
+          but the implementation is different.

@@ -28,4 +28,17 @@ using namespace std;
 // }
 
 
+class print{
+public:
+    void show(int x){ //function overloading    
+        cout << x; 
+    }
+    void show(string ch){
+        cout << ch;
+    }
+};
 
+int main(){
+    print p1;
+    p1.show("Manas");
+}
