@@ -19,7 +19,7 @@ bool iswin(vector<vector<char>>&board){
         }
     }
 
-    for(int i=0; i<board.size();i++){ // horizontal
+    for(int i=0; i<board.size();i++){ // vertical
         int x=0,o=0;
         for(int j=0; j<board.size();j++){
             if(board[j][i] == 'O') o++;
@@ -71,7 +71,11 @@ bool iswin(vector<vector<char>>&board){
 
 
 void randomfill(vector<vector<char>>&board){
-    for(int i=0; i<board.size();i++){
+    if(board[1][1] == '#'){//check center
+        board[1][1] = 'O';
+        return;
+    }
+    for(int i=0; i<board.size();i++){//first empty block
         for(int j=0; j<board.size();j++){
             if(board[i][j] == '#') {
                 board[i][j] = 'O';
@@ -100,7 +104,13 @@ pair<int,int>ifcritical(vector<vector<char>>&board){
             if(board[i][j] == 'X') x++;
             else if(board[i][j] == 'O') o++;
         }
-        if(x==2){
+        if(o==2){
+            for(int k=0; k<board.size();k++){
+                if(board[i][k] != 'O' && board[i][k]=='#'){
+                    return {i,k};
+                }
+            }
+        }else if(x==2){
             for(int k=0; k<board.size();k++){
                 if(board[i][k] != 'X' && board[i][k]=='#'){
                     return {i,k};
@@ -108,13 +118,7 @@ pair<int,int>ifcritical(vector<vector<char>>&board){
             }
         }
 
-        if(o==2){
-            for(int k=0; k<board.size();k++){
-                if(board[i][k] != 'O' && board[i][k]=='#'){
-                    return {i,k};
-                }
-            }
-        }
+        
     }
 
 
@@ -124,20 +128,20 @@ pair<int,int>ifcritical(vector<vector<char>>&board){
             if(board[j][i] == 'X') x++;
             else if(board[j][i] == 'O') o++;
         }
-        if(x==2){
-            for(int k=0; k<board.size();k++){
-                if(board[k][i] != 'X' && board[k][i] == '#'){
-                    return {k,i};
-                }
-            }
-        }
         if(o==2){
             for(int k=0; k<board.size();k++){
                 if(board[k][i] != 'O' && board[k][i]=='#'){
                     return {k,i};
                 }
             }
+        }else if(x==2){
+            for(int k=0; k<board.size();k++){
+                if(board[k][i] != 'X' && board[k][i] == '#'){
+                    return {k,i};
+                }
+            }
         }
+        
     }
 
 
@@ -147,15 +151,16 @@ pair<int,int>ifcritical(vector<vector<char>>&board){
         if(board[i][i] == 'X') x++;
         else if(board[i][i] == 'O') o++;
     }
-    if(x==2){
-        for(int i=0; i<board.size();i++){
-            if(board[i][i] != 'X' && board[i][i]=='#') return {i,i};
-        }
-    }else if(o==2){
+    if(o==2){
         for(int i=0; i<board.size();i++){
             if(board[i][i] != 'O' && board[i][i]=='#') return {i,i};
         }
+    }else if(x==2){
+        for(int i=0; i<board.size();i++){
+            if(board[i][i] != 'X' && board[i][i]=='#') return {i,i};
+        }
     }
+    
 
 
     //for anti diagonal
@@ -166,20 +171,20 @@ pair<int,int>ifcritical(vector<vector<char>>&board){
         if(board[i][n-1-i] == 'X') x++;
         else if(board[i][n-1-i] == 'O') o++;
     }
-    if(x==2){
-        for(int i=0; i<board.size();i++){
-            if(board[i][n-1-i] != 'X' && board[i][n-1-i] =='#' ){
-                return {i,n-i-1};
-            }
-        }
-    }
     if(o==2){
         for(int i=0; i<board.size();i++){
             if(board[i][n-1-i] != 'O' && board[i][n-i-1] =='#' ){
                 return {i,n-i-1};
             }
         }
+    }else if(x==2){
+        for(int i=0; i<board.size();i++){
+            if(board[i][n-1-i] != 'X' && board[i][n-1-i] =='#' ){
+                return {i,n-i-1};
+            }
+        }
     }
+    
 
     return {-1,-1};
 }
@@ -200,11 +205,7 @@ void tic_tac_toe(vector<vector<char>>&board,int& n){
     cout << "Enter your move as X in (i,j) index form: " ;
     cin >>i >>j;
     if(i < 0 || i >= 3 || j < 0 || j >= 3 || board[i][j] != '#') {
-    cout << "Invalid move, try again!\n";
-    return;
-    }
-    if(board[i][j] == 'O'){
-        cout << "Invalid move try another one! " << endl;
+        cout << "Invalid move, try again!\n";
         return;
     }else{
         board[i][j] = 'X';
