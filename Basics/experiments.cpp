@@ -6,7 +6,7 @@
 using namespace std;
 
 int main(){
-  vector<vector<int>>nums = {{1,3},{2,6}};
-  sort(nums.begin(),nums.end());
+    unordered_map<int,int>map= {{1,2},{2,3}};
+    cout << map.size();
   
 }

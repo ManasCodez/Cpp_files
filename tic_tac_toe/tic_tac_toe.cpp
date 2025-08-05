@@ -4,7 +4,69 @@
 using namespace std;
 
 bool iswin(vector<vector<char>>&board){
-    
+    for(int i=0; i<board.size();i++){ // horizontal
+        int x=0,o=0;
+        for(int j=0; j<board.size();j++){
+            if(board[i][j] == 'O') o++;
+            else if(board[i][j] == 'X') x++;
+        }
+        if(o==3){
+            cout << "Computer Won!!" << endl;
+            return true;
+        }else if(x==3){
+            cout << "You Won!!" << endl;
+            return true;
+        }
+    }
+
+    for(int i=0; i<board.size();i++){ // horizontal
+        int x=0,o=0;
+        for(int j=0; j<board.size();j++){
+            if(board[j][i] == 'O') o++;
+            else if(board[j][i] == 'X') x++;
+        }
+        if(o==3){
+            cout << "Computer Won!!" << endl;
+            return true;
+        }else if(x==3){
+            cout << "You Won!!" << endl;
+            return true;
+        }
+    }
+
+
+
+    int o=0,x=0;
+    for(int i=0; i<board.size();i++){//diagonal
+        if(board[i][i] =='O' ) o++;
+        else if(board[i][i] =='X') x++;
+
+    }
+    if(o==3){
+        cout << "Computer Won!!" << endl;
+        return true;
+    }
+    if(x==3){
+        cout << "You Won!!"<<endl;
+        return true;
+    }
+
+    o=0,x=0;
+    int n=board.size();
+    for(int i=0; i<n;i++){
+        if(board[i][n-i-1] =='O' ) o++;
+        else if(board[i][n-i-1] =='X') x++;
+
+    }
+    if(o==3){
+        cout << "Computer Won!!" << endl;
+        return true;
+    }
+    if(x==3){
+        cout << "You Won!!"<<endl;
+        return true;
+    }
+    return false;
 }
 
 
@@ -25,6 +87,7 @@ bool isfill(vector<vector<char>>&board){
             if(board[i][j]=='#') return false;
         }
     }
+    cout << "Game Drawn !!";
     return true;
 }
 
@@ -134,8 +197,12 @@ void printboard(vector<vector<char>>&board){
 
 void tic_tac_toe(vector<vector<char>>&board,int& n){
     int i,j;
-    cout << "Enter your first move as X in (i,j) index form: " ;
+    cout << "Enter your move as X in (i,j) index form: " ;
     cin >>i >>j;
+    if(i < 0 || i >= 3 || j < 0 || j >= 3 || board[i][j] != '#') {
+    cout << "Invalid move, try again!\n";
+    return;
+    }
     if(board[i][j] == 'O'){
         cout << "Invalid move try another one! " << endl;
         return;
@@ -155,11 +222,14 @@ void tic_tac_toe(vector<vector<char>>&board,int& n){
 }
 
 int main(){
+    cout << "Welcome my Friend" << endl;
+    cout << "In the legendary Game of TIC TAC TOE" << endl;
     vector<vector<char>>board(3,vector<char>(3,'#'));
     int n=0;
-    while((!isfill(board)) || iswin(board)){
+    while((!isfill(board)) && !iswin(board)){
     tic_tac_toe(board,n);
     }
+    
 
     return 0;
 }
