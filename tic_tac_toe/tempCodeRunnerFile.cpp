@@ -227,7 +227,7 @@ void printboard(vector<vector<char>>&board){
     return;
 }
 
-void tic_tac_toe(vector<vector<char>>&board){
+void tic_tac_toe(vector<vector<char>>&board,int& n){
     int i,j;
     cout << "Enter your move as X in (i,j) index form: " ;
     cin >>i >>j;
@@ -237,7 +237,7 @@ void tic_tac_toe(vector<vector<char>>&board){
     }else{
         board[i][j] = 'X';
     }
-    
+    n++;
     cout <<"Your move: "<<endl;
     printboard(board);
 
@@ -250,16 +250,16 @@ void tic_tac_toe(vector<vector<char>>&board){
     cout << "Computer's move: " << endl;
     printboard(board);
 }
-    
+
 int main(){
     cout << "Welcome my Friend" << endl;
     cout << "In the legendary Game of TIC TAC TOE" << endl;
     cout << "# means a empty space where you can make your move"<<endl;
     cout << "0 <= i,j <=2"<<endl;
     vector<vector<char>>board(3,vector<char>(3,'#'));
-    
+    int n=0;
     while((!isfill(board)) && !iswin(board)){
-    tic_tac_toe(board);
+    tic_tac_toe(board,n);
     }
     return 0;
 }
