@@ -10,10 +10,10 @@ bool iswin(vector<vector<char>>&board){
             if(board[i][j] == 'O') o++;
             else if(board[i][j] == 'X') x++;
         }
-        if(o==3){
+        if(o==3 && x==0){
             cout << "Computer Won!!" << endl;
             return true;
-        }else if(x==3){
+        }else if(x==3 && o==0){
             cout << "You Won!!" << endl;
             return true;
         }
@@ -227,8 +227,9 @@ void printboard(vector<vector<char>>&board){
     return;
 }
 
-void tic_tac_toe(vector<vector<char>>&board,int& n){
+void tic_tac_toe(vector<vector<char>>&board){
     int i,j;
+    
     cout << "Enter your move as X in (i,j) index form: " ;
     cin >>i >>j;
     if(i < 0 || i >= 3 || j < 0 || j >= 3 || board[i][j] != '#') {
@@ -237,7 +238,7 @@ void tic_tac_toe(vector<vector<char>>&board,int& n){
     }else{
         board[i][j] = 'X';
     }
-    n++;
+    
     cout <<"Your move: "<<endl;
     printboard(board);
 
@@ -250,16 +251,30 @@ void tic_tac_toe(vector<vector<char>>&board,int& n){
     cout << "Computer's move: " << endl;
     printboard(board);
 }
-
+    
 int main(){
     cout << "Welcome my Friend" << endl;
     cout << "In the legendary Game of TIC TAC TOE" << endl;
     cout << "# means a empty space where you can make your move"<<endl;
     cout << "0 <= i,j <=2"<<endl;
+    
     vector<vector<char>>board(3,vector<char>(3,'#'));
-    int n=0;
+    printboard(board);
     while((!isfill(board)) && !iswin(board)){
-    tic_tac_toe(board,n);
+    tic_tac_toe(board);
     }
+
+    bool play = true;
+    while(play){
+        char y;
+        cout << "Want to retry? Enter y or n: ";
+        cin >> y;
+        if(y=='n') break;
+        
+        board = vector<vector<char>>(3, vector<char>(3, '#'));
+        while((!isfill(board)) && !iswin(board)){
+            tic_tac_toe(board);
+    }
+}
     return 0;
 }
