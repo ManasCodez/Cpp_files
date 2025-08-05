@@ -99,7 +99,7 @@ bool isfill(vector<vector<char>>&board){
 pair<int,int>ifcritical(vector<vector<char>>&board){
     
     for(int i=0; i<board.size();i++){// for horizontal checking(for computer win)
-        int x=0,o=0;
+        int o=0;
         for(int j=0; j<board.size();j++){ 
             if(board[i][j] == 'O') o++;
         }
@@ -107,6 +107,20 @@ pair<int,int>ifcritical(vector<vector<char>>&board){
             for(int k=0; k<board.size();k++){
                 if( board[i][k]=='#'){
                     return {i,k};
+                }
+            }
+        }
+    }
+
+    for(int i=0; i<board.size();i++){// for vertical checking(for computer win)
+        int o=0;
+        for(int j=0; j<board.size();j++){ 
+            if(board[j][i] == 'O') o++;
+        }
+        if(o==2){
+            for(int k=0; k<board.size();k++){
+                if(  board[k][i]=='#'){
+                    return {k,i};
                 }
             }
         }
@@ -127,19 +141,7 @@ pair<int,int>ifcritical(vector<vector<char>>&board){
     }
 
 
-    for(int i=0; i<board.size();i++){// for vertical checking(for computer win)
-        int x=0,o=0;
-        for(int j=0; j<board.size();j++){ 
-            if(board[j][i] == 'X') x++;
-        }
-        if(x==2){
-            for(int k=0; k<board.size();k++){
-                if(  board[k][i]=='#'){
-                    return {k,i};
-                }
-            }
-        }
-    }
+    
 
     for(int i=0; i<board.size();i++){// for vertical checking(for player win)
         int x=0,o=0;
@@ -148,7 +150,7 @@ pair<int,int>ifcritical(vector<vector<char>>&board){
         }
         if(x==2){
             for(int k=0; k<board.size();k++){
-                if(board[k][i] != 'O' && board[k][i]=='#'){
+                if(board[k][i]=='#'){
                     return {k,i};
                 }
             }
@@ -156,31 +158,23 @@ pair<int,int>ifcritical(vector<vector<char>>&board){
     }
 
 
-    //for diagonal checking
-    int x=0,o=0;
+    // diagonal checking for computer win
+    int o=0;
     for(int i=0; i<board.size();i++){
-        if(board[i][i] == 'X') x++;
-        else if(board[i][i] == 'O') o++;
+        if(board[i][i] == 'O') o++;
     }
     if(o==2){
         for(int i=0; i<board.size();i++){
             if(board[i][i]=='#') return {i,i};
         }
-    }else if(x==2){
-        for(int i=0; i<board.size();i++){
-            if(board[i][i]=='#') return {i,i};
-        }
     }
-    
 
 
-    //for anti diagonal
-    x=0,o=0;
+    //anti diagonal checking for computer 
+    o=0;
     int n = board.size();
     for(int i=0; i<board.size();i++){
-        
-        if(board[i][n-1-i] == 'X') x++;
-        else if(board[i][n-1-i] == 'O') o++;
+        if(board[i][n-1-i] == 'O') o++;
     }
     if(o==2){
         for(int i=0; i<board.size();i++){
@@ -188,15 +182,38 @@ pair<int,int>ifcritical(vector<vector<char>>&board){
                 return {i,n-i-1};
             }
         }
-    }else if(x==2){
+    }
+    
+
+    //diagonal check if player is winning 
+    
+    int  x=0;
+    for(int i=0; i<board.size();i++){
+        if(board[i][i] == 'X') x++;
+    }
+    if(x==2){
         for(int i=0; i<board.size();i++){
-            if(board[i][n-1-i] =='#' ){
+            if( board[i][i] =='#' ){
+                return {i,i};
+            }
+        }
+    }
+
+
+
+    //anti diagonal checking if player is winning 
+    
+    x=0;
+    for(int i=0; i<board.size();i++){
+        if(board[i][n-1-i] == 'X') x++;
+    }
+    if(x==2){
+        for(int i=0; i<board.size();i++){
+            if( board[i][n-i-1] =='#' ){
                 return {i,n-i-1};
             }
         }
     }
-    
-
     return {-1,-1};
 }
 
@@ -243,7 +260,5 @@ int main(){
     while((!isfill(board)) && !iswin(board)){
     tic_tac_toe(board,n);
     }
-    
-
     return 0;
 }
