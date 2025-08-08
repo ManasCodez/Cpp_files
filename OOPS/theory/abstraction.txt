@@ -1,3 +1,21 @@
 1. Hiding all unnescessary details & showing only the important part is called abstration.
 
 2. Access modifier can be used to implement abstraction.
+
+3.Using abstract classes:
+        ~ abstract classes are used to provide a base class from which other classes
+          can be derived.
+
+        ~ They cannot be instantiated and are meant to be inherited.
+        
+        ~ Abstract classes are typically used to define an interface for derived classes.
+
+        ~ It is made only for inheritance, not used to make objects.
+
+
+4. Static keyword:
+          Static variables: variables declared static in a function are created and initialised 
+                            once for the lifetime of the program. //in function
+
+                            Static variables in a class are created and initialised once. They
+                            are shared by all the objects of the class. //in class

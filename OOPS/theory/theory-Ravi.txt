@@ -1,9 +1,7 @@
-
-Instance means Objects
-
 1. by default all the attributes and methods are private in c++;
 
 2.setter funtion : sets the value in private attributes
 
 3.getter function : gives the value of private attributes
 
+4.

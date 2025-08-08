@@ -250,7 +250,8 @@ void tic_tac_toe(vector<vector<char>>&board){
     }
     cout << "Computer's move: " << endl;
     printboard(board);
-}
+   
+}   
     
 int main(){
     cout << "Welcome my Friend" << endl;
