@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 int main(){
-    int n = 9;
+    int n = 10;
     for(int i = 1 ; i<=n; i++){  //top triangles
         for(int j = 1; j<=i; j++){
             cout << '*'; //top left triangle
