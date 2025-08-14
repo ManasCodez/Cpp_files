@@ -6,7 +6,6 @@
 using namespace std;
 
 int main(){
-    unordered_map<int,int>map= {{1,2},{2,3}};
-    cout << map.size();
+    cout << ('2'>'3');
   
 }
