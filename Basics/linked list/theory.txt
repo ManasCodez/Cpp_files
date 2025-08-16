@@ -1,0 +1,2 @@
+~ linked list have head pointer which points at the first element of the linked list and we use head pointer
+  to access the other elements.
