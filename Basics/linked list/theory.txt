@@ -1,2 +1,5 @@
 ~ linked list have head pointer which points at the first element of the linked list and we use head pointer
   to access the other elements.
+  
+~ Every node contains two values, one the data which we stored and other the pointer which points to the next 
+  element.
