@@ -6,7 +6,5 @@
 using namespace std;
 
 int main(){
-    
-    cout << "my age is " << 35 << " years old";
-  
+    cout << "manas";
 }
