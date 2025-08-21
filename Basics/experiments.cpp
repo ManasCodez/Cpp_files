@@ -6,6 +6,7 @@
 using namespace std;
 
 int main(){
-    cout << ('2'>'3');
+    
+    cout << "my age is " << 35 << " years old";
   
 }
