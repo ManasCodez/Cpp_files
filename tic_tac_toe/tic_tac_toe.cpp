@@ -10,11 +10,12 @@ bool iswin(vector<vector<char>>&board){
             if(board[i][j] == 'O') o++;
             else if(board[i][j] == 'X') x++;
         }
+        if(x==3 && o==0){
+            cout << "You Won!!" << endl;
+            return true;
+        }
         if(o==3 && x==0){
             cout << "Computer Won!!" << endl;
-            return true;
-        }else if(x==3 && o==0){
-            cout << "You Won!!" << endl;
             return true;
         }
     }
@@ -28,7 +29,8 @@ bool iswin(vector<vector<char>>&board){
         if(o==3){
             cout << "Computer Won!!" << endl;
             return true;
-        }else if(x==3){
+        }
+        if(x==3){
             cout << "You Won!!" << endl;
             return true;
         }
