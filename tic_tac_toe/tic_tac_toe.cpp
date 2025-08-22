@@ -10,8 +10,8 @@ bool iswin(vector<vector<char>>&board){
             if(board[i][j] == 'O') o++;
             else if(board[i][j] == 'X') x++;
         }
-        if(x==3 && o==0){
-            cout << "You Won!!" << endl;
+        if(o==0 && x==3){
+            cout << "You won !!" << endl;
             return true;
         }
         if(o==3 && x==0){
@@ -230,6 +230,9 @@ void printboard(vector<vector<char>>&board){
 }
 
 void tic_tac_toe(vector<vector<char>>&board){
+    if(iswin(board)){
+        return;
+    }
     int i,j;
     
     cout << "Enter your move as X in (i,j) index form: " ;
