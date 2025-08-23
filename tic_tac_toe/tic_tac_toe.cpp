@@ -3,73 +3,61 @@
 #include<string>
 using namespace std;
 
-bool iswin(vector<vector<char>>&board){
-    for(int i=0; i<board.size();i++){ // horizontal
-        int x=0,o=0;
-        for(int j=0; j<board.size();j++){
-            if(board[i][j] == 'O') o++;
-            else if(board[i][j] == 'X') x++;
-        }
-        if(o==0 && x==3){
-            cout << "You won !!" << endl;
-            return true;
-        }
-        if(o==3 && x==0){
-            cout << "Computer Won!!" << endl;
-            return true;
-        }
-    }
+bool iswin(vector<vector<char>>& board) {
+    int n = board.size();
 
-    for(int i=0; i<board.size();i++){ // vertical
-        int x=0,o=0;
-        for(int j=0; j<board.size();j++){
-            if(board[j][i] == 'O') o++;
-            else if(board[j][i] == 'X') x++;
+    // horizontal & vertical
+    for(int i=0; i<n; i++){
+        int xRow=0,oRow=0, xCol=0,oCol=0;
+        for(int j=0; j<n; j++){
+            if(board[i][j]=='X') xRow++;
+            if(board[i][j]=='O') oRow++;
+            if(board[j][i]=='X') xCol++;
+            if(board[j][i]=='O') oCol++;
         }
-        if(o==3){
-            cout << "Computer Won!!" << endl;
-            return true;
-        }
-        if(x==3){
+        if(xRow==n || xCol==n){
             cout << "You Won!!" << endl;
             return true;
         }
+        if(oRow==n || oCol==n){
+            cout << "Computer Won!!" << endl;
+            return true;
+        }
     }
 
-
-
-    int o=0,x=0;
-    for(int i=0; i<board.size();i++){//diagonal
-        if(board[i][i] =='O' ) o++;
-        else if(board[i][i] =='X') x++;
-
+    // main diagonal
+    int x=0,o=0;
+    for(int i=0; i<n; i++){
+        if(board[i][i]=='X') x++;
+        if(board[i][i]=='O') o++;
     }
-    if(o==3){
+    if(x==n){
+        cout << "You Won!!" << endl;
+        return true;
+    }
+    if(o==n){
         cout << "Computer Won!!" << endl;
         return true;
     }
-    if(x==3){
-        cout << "You Won!!"<<endl;
+
+    // anti-diagonal
+    x=0; o=0;
+    for(int i=0; i<n; i++){
+        if(board[i][n-1-i]=='X') x++;
+        if(board[i][n-1-i]=='O') o++;
+    }
+    if(x==n){
+        cout << "You Won!!" << endl;
         return true;
     }
-
-    o=0,x=0;
-    int n=board.size();
-    for(int i=0; i<n;i++){
-        if(board[i][n-i-1] =='O' ) o++;
-        else if(board[i][n-i-1] =='X') x++;
-
-    }
-    if(o==3){
+    if(o==n){
         cout << "Computer Won!!" << endl;
         return true;
     }
-    if(x==3){
-        cout << "You Won!!"<<endl;
-        return true;
-    }
+
     return false;
 }
+
 
 
 void randomfill(vector<vector<char>>&board){
@@ -230,9 +218,7 @@ void printboard(vector<vector<char>>&board){
 }
 
 void tic_tac_toe(vector<vector<char>>&board){
-    if(iswin(board)){
-        return;
-    }
+    
     int i,j;
     
     cout << "Enter your move as X in (i,j) index form: " ;
@@ -246,6 +232,11 @@ void tic_tac_toe(vector<vector<char>>&board){
     
     cout <<"Your move: "<<endl;
     printboard(board);
+
+    if(iswin(board) || isfill(board)){
+        return;
+    }
+
 
     auto a=ifcritical(board);
     if(a.first ==-1 && a.second ==-1 ){ // not critical
