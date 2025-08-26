@@ -258,7 +258,7 @@ int main(){
     vector<vector<char>>board(3,vector<char>(3,'#'));
     printboard(board);
     while((!isfill(board)) && !iswin(board)){
-    tic_tac_toe(board);
+        tic_tac_toe(board);
     }
 
     bool play = true;
