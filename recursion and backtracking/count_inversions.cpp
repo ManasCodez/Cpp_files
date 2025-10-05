@@ -57,7 +57,7 @@ void mergesort(vector<int>&nums, int st , int end, int& c){
     if(st<end){
         int mid = st + (end-st)/2;
         mergesort(nums,st,mid,c); // for left 
-        mergesort(nums,mid+1,end,c);
+        mergesort(nums,mid+1,end,c); //for right
 
         merge_and_compare(nums, st , end , mid,c);
     }
