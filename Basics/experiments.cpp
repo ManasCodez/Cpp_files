@@ -7,6 +7,13 @@
 using namespace std;
 
 int main(){
-    //4byte = 32 bit
-    cout << INT_MAX;
+    for(int i=0; i <10; i++){
+        for(int j=0; j<10; j++){
+            if(j==8){
+                break;
+            }
+            cout << i << ", " << j <<endl;
+        }
+    }
+    return 0;
 }
