@@ -92,7 +92,7 @@ using namespace std;
 
 
 
-//diagonal sum (both diagonal) ******
+//diagonal sum (both diagonal) *******
 int main(){
     int arr[4][4] = {{ 1,  2,  3,  2}, 
                      { 4,  5,  6,  3},
