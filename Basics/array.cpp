@@ -232,18 +232,18 @@ using namespace std;
 
 
 
-//Catesian product of two array
-// int main(){
-//     int arr1[]={1,2,3,4,5};
-//     int arr2[]={6,7,8,9};
-//     int s1=5;
-//     int s2=4;
-//     for(int i=0; i<s1;i++){
-//         for(int j =0; j<s2; j++){
-//             cout << '(' << arr1[i] << ',' << arr2[j] <<')' << ' ' << endl;
-//         }
-//     }
-// }
+// Catesian product of two array
+int main(){
+    int arr1[]={1,2,3,4,5};
+    int arr2[]={6,7,8,9};
+    int s1=5;
+    int s2=4;
+    for(int i=0; i<s1;i++){
+        for(int j =0; j<s2; j++){
+            cout << '(' << arr1[i] << ',' << arr2[j] <<')' << ' ' << endl;
+        }
+    }
+}
 
 
 
@@ -270,9 +270,9 @@ using namespace std;
 
 
 
-int main(){
-    int arr1[]={1,2,3,4,5};
-    for(int i : arr1){
-        cout << i << endl;
-    }
-}
+// int main(){
+//     int arr1[]={1,2,3,4,5};
+//     for(int i : arr1){
+//         cout << i << endl;
+//     }
+// }
