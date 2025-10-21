@@ -233,24 +233,24 @@ using namespace std;
 
 
 // Catesian product of two array
-int main(){
-    int arr1[]={1,2,3,4,5};
-    int arr2[]={6,7,8,9};
-    int s1=5;
-    int s2=4;
-    for(int i=0; i<s1;i++){
-        for(int j =0; j<s2; j++){
-            cout << '(' << arr1[i] << ',' << arr2[j] <<')' << ' ' << endl;
-        }
-    }
-}
+// int main(){
+//     int arr1[]={1,2,3,4,5};
+//     int arr2[]={6,7,8,9};
+//     int s1=5;
+//     int s2=4;
+//     for(int i=0; i<s1;i++){
+//         for(int j =0; j<s2; j++){
+//             cout << '(' << arr1[i] << ',' << arr2[j] <<')' << ' ' << endl;
+//         }
+//     }
+// }
 
 
 
 
 
 //intersection of two array;
-// int main(){
+// int main(){ //brute force  O(n^2)
 //     int arr1[]={1,2,3,4,5};
 //     int arr2[]={6,7,3,1};
 //     int s1=5;
@@ -265,6 +265,32 @@ int main(){
 //     }
 //     return 0;
 // }
+
+
+
+//intersection of two array;
+//using sets   O(n)
+#include<vector>
+#include<unordered_set>
+int main(){
+    vector<int>ans;
+    unordered_set<int>set;
+    int arr1[]={1,2,3,4,5};
+    int arr2[]={6,7,3,1};
+    for(int i:arr1){
+        set.insert(i);
+    }
+    for(int i : arr2){
+        if(set.find(i) != set.end()){
+            ans.push_back(i);
+        }
+    }
+
+    for(int i:ans){
+        cout << i << ' ';
+    }
+    return 0;    
+}
 
 
 
