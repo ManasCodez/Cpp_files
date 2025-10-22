@@ -67,7 +67,7 @@ void partition(string s,vector<vector<string>>&ans,vector<string>&current){
 int main(){
     vector<vector<string>>ans;
     vector<string>current;
-    string s = "aab";
+    string s = "abaabcaba";
     partition(s,ans,current);
 
     for(auto i:ans){
