@@ -45,6 +45,14 @@ public:
             tail = newnode;
         }
     }
+
+    void pop_front(){
+        if(head == NULL) return;
+        node* temp=head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
     
     void printll(){
         node* i = head;
@@ -60,10 +68,14 @@ public:
 
 int main(){
     list ll;
+    ll.push_front(1);
+    ll.push_front(2);
+    ll.push_front(3);
+    ll.push_back(4);
     
-    ll.push_back(1);
-    ll.push_back(2);
-    ll.push_back(3);
+    ll.printll();
+    
+    ll.pop_front();
     ll.printll();
     return 0;
 }
