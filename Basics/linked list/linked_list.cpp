@@ -65,10 +65,10 @@ public:
             temp = temp->next;
         }
         
-        node* i = tail;
+        temp->next = NULL;
+        delete tail;
         tail = temp;
-        tail->next=NULL;
-        delete i;
+    
     }
     
     void printll(){
