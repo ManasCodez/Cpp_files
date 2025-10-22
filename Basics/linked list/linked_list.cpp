@@ -34,6 +34,17 @@ public:
             head = newnode;          //         deferencing and then giving the value
         }
     }
+
+    void push_back(int i){
+        node* newnode = new node(i);
+        if(head == NULL){
+            head = tail = newnode;
+            return;
+        }else{
+            tail->next = newnode;
+            tail = newnode;
+        }
+    }
     
     void printll(){
         node* i = head;
@@ -49,9 +60,10 @@ public:
 
 int main(){
     list ll;
-    ll.push_front(1);
-    ll.push_front(2);
-    ll.push_front(3);
+    
+    ll.push_back(1);
+    ll.push_back(2);
+    ll.push_back(3);
     ll.printll();
     return 0;
 }
