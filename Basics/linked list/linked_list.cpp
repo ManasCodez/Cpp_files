@@ -53,6 +53,23 @@ public:
         temp->next = NULL;
         delete temp;
     }
+
+    void pop_back(){
+        if(head == NULL) return;
+        if(head == tail){
+            delete head;
+            head = tail = NULL;
+        }
+        node* temp = head;
+        while(temp->next != tail){
+            temp = temp->next;
+        }
+        
+        node* i = tail;
+        tail = temp;
+        tail->next=NULL;
+        delete i;
+    }
     
     void printll(){
         node* i = head;
@@ -76,6 +93,8 @@ int main(){
     ll.printll();
     
     ll.pop_front();
+    ll.printll();
+    ll.pop_back();
     ll.printll();
     return 0;
 }
