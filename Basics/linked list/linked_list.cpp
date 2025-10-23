@@ -70,6 +70,30 @@ public:
         tail = temp;
     
     }
+
+    void insert(int val , int pos){
+        node* newnode = new node(val);
+        if(pos == 0){
+            newnode->next = head;
+            head = newnode;
+            return;
+        }
+        node* temp = head;
+        int i = 0;
+
+        while(temp!=NULL && i<pos-1){
+            temp = temp->next;
+            i++;
+        }
+        if (temp == NULL) {
+            cout << "Invalid position!" << endl;
+            delete newnode; // avoid memory leak
+            return;
+        }   
+
+        newnode->next = temp->next;
+        temp->next = newnode;
+    }
     
     void printll(){
         node* i = head;
@@ -95,6 +119,8 @@ int main(){
     ll.pop_front();
     ll.printll();
     ll.pop_back();
+    ll.printll();
+    ll.insert(3,1);
     ll.printll();
     return 0;
 }
