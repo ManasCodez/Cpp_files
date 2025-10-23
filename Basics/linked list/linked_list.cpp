@@ -24,7 +24,7 @@ public:
         head = tail = NULL;
     }
 
-    void push_front(int i){
+    void push_front(int i){ //O(1)
         node* newnode = new node(i); //using new to make a dyanamic  object which will
         if(head == NULL){            //retained even after the function ends.
             head = tail = newnode;
@@ -35,7 +35,7 @@ public:
         }
     }
 
-    void push_back(int i){
+    void push_back(int i){//O(1)
         node* newnode = new node(i);
         if(head == NULL){
             head = tail = newnode;
@@ -46,7 +46,7 @@ public:
         }
     }
 
-    void pop_front(){
+    void pop_front(){//O(1)
         if(head == NULL) return;
         node* temp=head;
         head = head->next;
@@ -54,7 +54,7 @@ public:
         delete temp;
     }
 
-    void pop_back(){
+    void pop_back(){//O(n)
         if(head == NULL) return;
         if(head == tail){
             delete head;
@@ -71,7 +71,7 @@ public:
     
     }
 
-    void insert(int val , int pos){
+    void insert(int val , int pos){ //O(n)
         node* newnode = new node(val);
         if(pos == 0){
             newnode->next = head;
@@ -93,6 +93,20 @@ public:
 
         newnode->next = temp->next;
         temp->next = newnode;
+    }
+
+
+    int search(int key){ //O(n)
+        node* temp = head;
+        int i=0;
+        while(temp!=NULL){
+            if(temp->data == key){
+                return i;
+            }
+            i++;
+            temp = temp->next;
+        }
+        return -1;
     }
     
     void printll(){
@@ -122,5 +136,8 @@ int main(){
     ll.printll();
     ll.insert(3,1);
     ll.printll();
+    
+    cout << ll.search(3) << endl;
+    cout << ll.search(5) << endl;
     return 0;
 }
