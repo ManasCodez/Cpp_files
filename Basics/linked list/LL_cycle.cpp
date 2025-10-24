@@ -174,11 +174,14 @@ int main(){ //Slow-Fast approach
 
         if(slow == fast){
             slow = ll.head;
+            node* prev = NULL;
             while(slow != fast){
                 slow = slow->next;
+                prev = fast;  //previous node of the fast
                 fast = fast->next;
             }
             cout << "The cycle starts at: " << slow->data <<endl;
+            prev->next = NULL;   //removes the cycle
             return 0;
         }
     }
