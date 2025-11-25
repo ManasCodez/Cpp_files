@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-#include<algorithm>
+
 using namespace std;
 
 void merge(vector<int>&nums,int st, int end , int mid){
