@@ -123,35 +123,42 @@ class list{
 
 
 
-//middle of LL
-//can find the node from where the cycle start
-// int main(){ //Normal approach
+
+
+
+
+//cannot find the node where cycle starts
+// int main(){ //Slow-Fast Approach
 //     list ll;
 //     ll.push_front(1);
 //     ll.push_front(4);
 //     ll.push_front(3);
+    
+//     node* slow = ll.head;
+//     node* fast = ll.head;
+//     ll.tail->next = ll.head;  //creates a cycle
 
-//     int i=0;
-//     node* temp = ll.head;
-//     while(temp != NULL){
-//         temp = temp->next;
-//         i++;
-//     }
 
-//     int mid = i/2;
-//     temp = ll.head;
-//     for(int j =0; j<mid; j++){
-//         temp = temp->next;
+//     while(fast!=NULL && fast->next!=NULL){
+//         slow = slow->next;
+//         fast = fast->next->next;
+
+//         if(slow == fast){
+//             cout << "List contains a cycle";
+//             return 0;
 //         }
-//     cout << temp->data;
+//     }
+//     cout << "List does not contain any cycle";
 //     return 0;
 // }
 
 
 
 
-//cant find the node where cycle starts
-int main(){ //Slow-Fast Approach
+
+
+//can find in which node the cycle starts
+int main(){ //Slow-Fast approach
     list ll;
     ll.push_front(1);
     ll.push_front(4);
@@ -159,13 +166,24 @@ int main(){ //Slow-Fast Approach
     
     node* slow = ll.head;
     node* fast = ll.head;
-    
-    while(fast->next != NULL && fast->next->next!=NULL){
+    ll.tail->next = ll.head;  //creates cycle
+
+    while(fast != NULL && fast->next != NULL){
         slow = slow->next;
         fast = fast->next->next;
+
+        if(slow == fast){
+            slow = ll.head;
+            node* prev = NULL;
+            while(slow != fast){
+                slow = slow->next;
+                prev = fast;  //previous node of the fast
+                fast = fast->next;
+            }
+            cout << "The cycle starts at: " << slow->data <<endl;
+            prev->next = NULL;   //removes the cycle
+            return 0;
+        }
     }
-    
-    cout << slow->data;
-
-
+    cout << "No cycle exists";
 }
