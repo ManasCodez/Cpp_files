@@ -1,46 +1,71 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class node{
+class node
+{
 public:
     int data;
-    node* next;
-    node* pre;
+    node *next;
+    node *pre;
 
-    node(int val){
+    node(int val)
+    {
         data = val;
         next = NULL;
         pre = NULL;
     }
 };
 
-class DLL{
+class DLL
+{
 public:
-    node* head;
-    node* tail;
-
-    void push_front(int val){
-        node* newnode = new node(val);
-        if(head == NULL){
+    node *head;
+    node *tail;
+    DLL()
+    {
+        head = NULL;
+        tail = NULL;
+    }
+    void push_front(int val)
+    {
+        node *newnode = new node(val);
+        if (head == NULL)
+        {
             head = tail = newnode;
             return;
-        }else{
-            newnode->next = head ;
+        }
+        else
+        {
+            newnode->next = head;
             head->pre = newnode;
             head = newnode;
         }
     }
 
-    void pop_front(){
-        node* temp = head;
-        head = head->next;
-        temp->next = NULL;
-        delete temp;
+    void pop_front()
+    {
+        if (head == NULL)
+        {
+            return; // empty list
+        }
+        if (head == tail)
+        {
+            head = tail = NULL;
+        }
+        else{
+            node *temp = head;
+            head = head->next;
+            head->pre = NULL;
+            temp->next = NULL;
+            delete temp;
+        }
     }
 
-    void print(){
-        node* temp = head;
-        while(temp!= NULL){
+    void print()
+    {
+        node *temp = head;
+        while (temp != NULL)
+        {
             cout << temp->data << " ";
             temp = temp->next;
         }
@@ -48,7 +73,8 @@ public:
     }
 };
 
-int main(){
+int main()
+{
     DLL ll;
     ll.push_front(1);
     ll.push_front(2);
