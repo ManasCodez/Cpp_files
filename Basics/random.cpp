@@ -1,13 +1,21 @@
 #include<iostream>
+#include<vector>
+#include<algorithm>
+#include<climits>
 using namespace std;
 int main(){
-    int n=8;
-    for(int i=1; i<=n; i=i+2){
-        int a=1;
-        for(int j=1; j<=i; j=j+2){
-            cout << a << ' ';
-            a=a+2;
+    vector<int>nums = {3,5,2,3};
+   sort(nums.begin(), nums.end());
+        vector<vector<int>>pairs(nums.size()/2);
+        int i=0, j = nums.size()-1;
+        while(i<j){
+            pairs.push_back({ nums[i]  ,nums[j] });
+            i++;j--;
         }
-        cout << endl;
-    }
+        int sum =INT_MAX;
+        for(auto i: pairs){
+            sum = min(sum, i[0]+i[1]);
+        }
+
+        return sum;
 }
