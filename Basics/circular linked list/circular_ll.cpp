@@ -107,7 +107,7 @@ public:
 int main(){
     CLL cll;
 
-    // cll.push_front(1);
+    cll.push_front(1);
     cll.push_front(2);
     cll.push_front(3);
 
