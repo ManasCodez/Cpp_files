@@ -51,6 +51,7 @@ int main(){
     ll.push(20);
     ll.push(30);
     ll.pop();
+    ll.push(123);
 
     cout << ll.top();
 }
