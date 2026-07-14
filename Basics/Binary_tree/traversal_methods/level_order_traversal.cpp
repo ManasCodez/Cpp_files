@@ -74,7 +74,7 @@ void levelorder(node* root, queue<node*>&q){
 
 int main(){
     queue<node*>q;
-    vector<int>pre_seq= {1,2,-1,-1,3,4,-1,-1,5,-1,-1};
+    vector<int>pre_seq= {1,2,4,-1,-1,5,-1,-1,3,6,-1,-1,7,-1,-1};
     node* root = buildtree(pre_seq);
     levelorder(root , q);
     
