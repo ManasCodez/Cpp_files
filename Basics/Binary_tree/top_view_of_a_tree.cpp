@@ -35,13 +35,13 @@ void topview(node* root){
     map<int,node*>top;
 
     q.push({root,0});
-
+    //total time complexity is O(nlogn)
     while(q.size() >0 ){
         auto curr = q.front();
         cout  <<curr.first->data <<' ' << "distance: " << curr.second << endl;
         q.pop();
         
-        if(top.find(curr.second) == top.end()){
+        if(top.find(curr.second) == top.end()){ //time complexity of find is O(logn)
             top[curr.second] = curr.first;
         }
 
